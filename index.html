@@ -6,7 +6,6 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
-    <script src="./src/main.js" async></script>
   </head>
   <body>
     <div id="header"> 
@@ -20,32 +19,23 @@
       </div>
     </div>
 
-    <a-scene mindar-image="uiScanning: #scanning-overlays; imageTargetSrc: ./assets/2d/targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene id="arScene" mindar-image="uiScanning: #scanning-overlays; imageTargetSrc: ./assets/2d/targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <a-asset-item id="tiger" src="./assets/3d/tiger.glb"></a-asset-item>
-        <a-asset-item id="duck" src="./assets/3d/duck.glb"></a-asset-item>
-        <a-asset-item id="goat" src="./assets/3d/goat.glb"></a-asset-item>
-        <a-asset-item id="snake" src="./assets/3d/snake.glb"></a-asset-item>
         <a-asset-item id="cat" src="./assets/3d/cat.glb"></a-asset-item>
+        <a-asset-item id="duck" src="./assets/3d/duck.glb"></a-asset-item>
+        <a-asset-item id="elephant" src="./assets/3d/elephant.glb"></a-asset-item>
+        <a-asset-item id="goat" src="./assets/3d/goat.glb"></a-asset-item>
+        <a-asset-item id="gorilla" src="./assets/3d/gorilla.glb"></a-asset-item>
+        <a-asset-item id="monkey" src="./assets/3d/monkey.glb"></a-asset-item>
+        <a-asset-item id="rabbit" src="./assets/3d/rabbit.glb"></a-asset-item>
+        <a-asset-item id="racoon" src="./assets/3d/raccoon.glb"></a-asset-item>
+        <a-asset-item id="snake" src="./assets/3d/snake.glb"></a-asset-item>
+        <a-asset-item id="tiger" src="./assets/3d/tiger.glb"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0 0 0" src="#duck" animation-mixer>
-      </a-entity>
-      <a-entity mindar-image-target="targetIndex: 1">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#snake" animation-mixer>
-      </a-entity>
-      <a-entity mindar-image-target="targetIndex: 2">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#tiger" animation-mixer>
-      </a-entity>
-      <a-entity mindar-image-target="targetIndex: 3">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#goat" animation-mixer>
-      </a-entity>
-      <a-entity mindar-image-target="targetIndex: 4">
-        <a-gltf-model rotation="0 0 0 " position="0 -0.25 0" scale="0.5 0.5 0.5" src="#cat" animation-mixer>
-      </a-entity>
     </a-scene>
+    <script src="./src/main.js"></script>
+
   </body>
 </html>
