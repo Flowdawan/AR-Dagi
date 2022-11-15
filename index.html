@@ -6,6 +6,7 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+    <script src="./src/main.js" defer></script>
   </head>
   <body>
     <div id="header"> 
@@ -14,11 +15,10 @@
    
     <div id="scanning-overlays" class="hidden">
       <div class="inner">
-        <img id="overlayImage" src="./assets/2d/cat.jpg"/>
+        <img id="overlayImage" src="./assets/2d/animals/cat.jpg"/>
         <div class="scanline"></div>
       </div>
     </div>
-
     <a-scene id="arScene" mindar-image="uiScanning: #scanning-overlays; imageTargetSrc: ./assets/2d/targets.mind; maxTrack: 2" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <a-asset-item id="cat" src="./assets/3d/cat.glb"></a-asset-item>
@@ -32,10 +32,7 @@
         <a-asset-item id="snake" src="./assets/3d/snake.glb"></a-asset-item>
         <a-asset-item id="tiger" src="./assets/3d/tiger.glb"></a-asset-item>
       </a-assets>
-
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
     </a-scene>
-    <script src="./src/main.js"></script>
-
   </body>
 </html>
