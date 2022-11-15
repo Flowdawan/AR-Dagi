@@ -13,7 +13,7 @@ body {
 
 #caption {
     position: absolute;
-    font-size: 30px;
+    font-size: 30sp;
     font-weight: 300;
     color: transparent;
     background-image: linear-gradient(to right, #553c9a, #ee4b2b, #00c2cb, #ff7f50, #553c9a);
