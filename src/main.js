@@ -49,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function addFoodListener(entity) {
         document.querySelector(`#${entity}-entity`).addEventListener("targetFound", event => {
-            console.log(`${visibleAnimals[0]} likes ${entity}`);
+            if(visibleAnimals) {
+                console.log(`${visibleAnimals[0]} likes ${entity}`);
+            }
         });
     }
 
