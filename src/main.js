@@ -1,23 +1,72 @@
-const animals = ["cat", "duck", "elephant", "goat", "gorilla", "monkey", "rabbit", "raccoon", "snake", "tiger"]
+document.addEventListener("DOMContentLoaded", function () {
 
-function changeOverlayImage() {
-    let image = document.getElementById("overlayImage");
-    let images = []
-    animals.forEach(function (animal) {
-        images.push(`../assets/2d/animals/${animal}.jpg`)
-    });
+    const animals = ["cat", "duck", "elephant", "goat", "monkey", "rabbit", "raccoon", "snake", "tiger"]
+    const food = ["apple"]
 
-    setInterval(function () {
-        let random = Math.floor(Math.random() * 5)
-        image.src = images[random]
-    }, 5000)
-}
+    let visibleAnimals = []
 
-function addEntities() {
-    animals.forEach(function (animal, index) {
-        document.getElementById("arScene").insertAdjacentHTML('beforeend', `<a-entity mindar-image-target="targetIndex: ${index}"> <a-gltf-model rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#${animal}" animation-mixer></a-entity>`)
-    });
-}
+    const sceneEl = document.querySelector('a-scene')
 
-addEntities()
-changeOverlayImage()
+    function init() {
+        sceneEl.addEventListener("arError", () => {
+            console.log("MindAR failed to start - Mostly browser compatbility issue")
+        });
+        addAnimalEntities()
+        addFoodEntities()
+        changeOverlayImage()
+
+    }
+
+    function changeOverlayImage() {
+        let image = document.getElementById("overlayImage");
+        let images = []
+        animals.forEach(function (animal) {
+            images.push(`../assets/2d/animals/${animal}.jpg`)
+        });
+
+        setInterval(function () {
+            let random = Math.floor(Math.random() * 9)
+            image.src = images[random]
+        }, 5000)
+    }
+
+    function addAnimalEntities() {
+        animals.forEach(function (animal, index) {
+            sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${animal}" id="${animal}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${animal}-model" class="clickable" rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#${animal}" animation-mixer></a-entity>`)
+            addVisibleEntitiesToArrayListener(animal)
+            removeLostEntitiesFromArrayListener(animal)
+        });
+    }
+
+    function addFoodEntities() {
+        let index = animals.length
+        food.forEach(function (food) {
+            sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${food}" id="${food}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${food}-model" class="clickable" rotation="0 0 4" position="0 0 0" scale="0.3 0.3 0.3" src="#${food}" animation-mixer></a-entity>`)
+            addFoodListener(food)
+            index ++
+        });
+    }
+
+    function addFoodListener(entity) {
+        document.querySelector(`#${entity}-entity`).addEventListener("targetFound", event => {
+            console.log(`${visibleAnimals[0]} likes ${entity}`);
+        });
+    }
+
+    function addVisibleEntitiesToArrayListener(entity) {
+        document.querySelector(`#${entity}-entity`).addEventListener("targetFound", event => {
+            console.log(`${entity} found`);
+            visibleAnimals.push(entity)
+        });
+        
+    }
+    function removeLostEntitiesFromArrayListener(entity) {
+        document.querySelector(`#${entity}-entity`).addEventListener("targetLost", event => {
+            console.log(`${entity} lost`);
+            let name = event.target.getAttribute("data-name");
+            visibleAnimals = visibleAnimals.filter(item => item !== name)
+        });
+    }
+
+    init()
+});
