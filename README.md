@@ -1,5 +1,5 @@
 # AR-Dagi
-This project is an AR application created with aframes which works like a Tamagotchi but as AR. 
+This project is an AR application created with aframes which shows animal animations when scanned and food too.
 
 # Test it now
 
