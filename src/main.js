@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addAnimalEntities()
         addFoodEntities()
         changeOverlayImage()
-
     }
 
     function changeOverlayImage() {
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function addAnimalEntities() {
         animals.forEach(function (animal, index) {
-            sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${animal}" id="${animal}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${animal}-model" class="clickable" rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#${animal}" animation-mixer></a-entity>`)
+            sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${animal}" id="${animal}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${animal}-model" rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#${animal}" animation-mixer></a-entity>`)
             addVisibleEntitiesToArrayListener(animal)
             removeLostEntitiesFromArrayListener(animal)
         });
@@ -41,16 +40,32 @@ document.addEventListener("DOMContentLoaded", function () {
     function addFoodEntities() {
         let index = animals.length
         food.forEach(function (food) {
-            sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${food}" id="${food}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${food}-model" class="clickable" rotation="0 0 4" position="0 0 0" scale="0.3 0.3 0.3" src="#${food}" animation-mixer></a-entity>`)
+            sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${food}" id="${food}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${food}-model" class="clickable" position="0 0 0" scale="0.3 0.3 0.3" src="#${food}"></a-entity>`)
             addFoodListener(food)
-            index ++
+            index++
         });
     }
 
     function addFoodListener(entity) {
         document.querySelector(`#${entity}-entity`).addEventListener("targetFound", event => {
-            if(visibleAnimals) {
-                console.log(`${visibleAnimals[0]} likes ${entity}`);
+            const entity_model = document.querySelector(`#${entity}-model`)
+            entity_model.classList.add("clickable")
+            entity_model.setAttribute('visible', true)
+        });
+        document.querySelector(`#${entity}-entity`).addEventListener("click", event => {
+            if (visibleAnimals.length > 0) {
+                let entity_model = document.querySelector(`#${entity}-model`)
+                entity_model.setAttribute('visible', false)
+                entity_model.classList.remove("clickable")
+                let hearts = document.getElementsByClassName("heart")
+                for (var i = 0; i < hearts.length; i++) {
+                    hearts[i].classList.add('active');
+                }
+                setTimeout(function() {
+                    for (var i = 0; i < hearts.length; i++) {
+                        hearts[i].classList.remove('active');
+                    }
+                }, 10000);
             }
         });
     }
@@ -60,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log(`${entity} found`);
             visibleAnimals.push(entity)
         });
-        
     }
     function removeLostEntitiesFromArrayListener(entity) {
         document.querySelector(`#${entity}-entity`).addEventListener("targetLost", event => {
