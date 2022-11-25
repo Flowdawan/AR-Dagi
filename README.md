@@ -25,4 +25,6 @@ Works best (unfortunately) with Google Chrome
 
 - - -
 
-For the semester project in the 5th semester at the FH-Campus Vienna a AR web application.
+An augmented reality web based application for some project in the 5th semester at the FH-Campus Vienna.
+
+Made with 🍻
