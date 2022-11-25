@@ -1,5 +1,5 @@
 # AR-Dagi
-This project is an AR application created with aframes which shows animal animations when scanned and food too.
+This project is an AR application created with [mind-ar-js](https://github.com/hiukim/mind-ar-js) which shows animal animations when scanned and if combined with food try to click the food to feed the scanned animal.
 
 # Test it now
 
@@ -24,6 +24,8 @@ Works best (unfortunately) with Google Chrome
 - Walid
 
 - - -
+
+For this project we used the Image tracking as well as "Image Tracking - Multiple Targets" and "Image Tracking - Interactive" features from the mind-ar-js library combined with some basic own JavaScript.
 
 An augmented reality web based application for some project in the 5th semester at the FH-Campus Vienna.
 
