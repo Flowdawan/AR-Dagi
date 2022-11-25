@@ -13,6 +13,10 @@ https://github.com/Flowdawan/AR-Dagi/blob/main/assets/2d/animals/cat.jpg
 and:
 https://github.com/Flowdawan/AR-Dagi/blob/main/assets/2d/food/apple.jpg
 
+After you have scanned an animal with some food you can click the food to feed the animal with it :)
+
+Works best (unfortunately) with Google Chrome
+
 # Developer Team
 
 - Predrag
