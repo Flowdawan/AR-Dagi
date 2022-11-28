@@ -12,14 +12,15 @@ export class Food {
                 "name": "banana",
                 "position": "0.08 0.08 0.08",
                 "scale": "0 0 0"
-            },
+            }
         ]
+    }
 
     addFoodEntities() {
         let index = this.animal.animals.length
         this.food.forEach((food) => {
-            this.sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${food}" id="${food}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${food}-model" class="clickable" position="0 0 0" scale="0.3 0.3 0.3" src="#${food}"></a-entity>`)
-            this.addFoodListener(food)
+            this.sceneEl.insertAdjacentHTML('beforeend', `<a-entity data-name="${food.name}" id="${food.name}-entity" mindar-image-target="targetIndex: ${index}"><a-gltf-model id="${food.name}-model" class="clickable" position="${food.position}" scale="${food.scale}" src="#${food.name}"></a-entity>`)
+            this.addFoodListener(food.name)
             index++
         });
     }
