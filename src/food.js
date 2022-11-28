@@ -3,9 +3,17 @@ export class Food {
         this.sceneEl = sceneEl
         this.animal = animal
         this.food = [
-            "apple",
-            "banana"]
-    }
+            {
+                "name": "apple",
+                "position": "0 0 0",
+                "scale": "0.3 0.3 0.3"
+            },
+            {
+                "name": "banana",
+                "position": "0.08 0.08 0.08",
+                "scale": "0 0 0"
+            },
+        ]
 
     addFoodEntities() {
         let index = this.animal.animals.length
