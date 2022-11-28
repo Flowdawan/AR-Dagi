@@ -25,7 +25,7 @@ Works best (unfortunately) with Google Chrome
 
 - - -
 
-For this project we used the Image tracking as well as "Image Tracking - Multiple Targets" and "Image Tracking - Interactive" features from the mind-ar-js library combined with some basic own JavaScript.
+For this project we used the Image tracking as well as "Image Tracking - Multiple Targets" and "Image Tracking - Interactive" features from the mind-ar-js library combined with some basic own JavaScript. We also used Github Actions to automatically trigger a workflow (push to the prod branch) that uploads all data to an FTP server and displays it at [our website](ardagi.deflow.at) to enable a smooth testing.
 
 An augmented reality web based application for some project in the 5th semester at the FH-Campus Vienna.
 
