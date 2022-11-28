@@ -10,8 +10,8 @@ export class Food {
             },
             {
                 "name": "banana",
-                "position": "0.08 0.08 0.08",
-                "scale": "0 0 0"
+                "position": "0 0 0",
+                "scale": "0.1 0.1 0.1"
             }
         ]
     }
