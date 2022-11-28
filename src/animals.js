@@ -5,7 +5,7 @@ export class Animal {
         this.animals = [
             {
                 "name": "cat",
-                "position": "-0.5 0 0",
+                "position": "0 0 0",
                 "scale": "1 1 1"
             },
             {
@@ -31,7 +31,7 @@ export class Animal {
             {
                 "name": "rabbit",
                 "position": "0 0 0",
-                "scale": "1.4 1.4 1.4"
+                "scale": "1.2 1.2 1.2"
             },
             {
                 "name": "raccoon",
@@ -41,12 +41,12 @@ export class Animal {
             {
                 "name": "snake",
                 "position": "0 0 0",
-                "scale": "1 1 1"
+                "scale": "0.7 0.7 0.7"
             },
             {
                 "name": "tiger",
                 "position": "0 0 0",
-                "scale": "1 1 1"
+                "scale": "0.6 0.6 0.6"
             },
         ]
     }
