@@ -3,7 +3,8 @@ export class Food {
         this.sceneEl = sceneEl
         this.animal = animal
         this.food = [
-            "apple"]
+            "apple",
+            "banana"]
     }
 
     addFoodEntities() {
