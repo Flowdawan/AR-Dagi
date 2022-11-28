@@ -63,9 +63,6 @@ export class Animal {
             console.log(`${entity.name} found`);
             this.visibleAnimals.push(entity)
         });
-        document.querySelector(`#${entity.name}-model`).addEventListener("click", event => {
-            alert("I am an alert box!");
-        });
     }
     removeLostEntitiesFromArrayListener(entity) {
         document.querySelector(`#${entity.name}-entity`).addEventListener("targetLost", event => {
