@@ -1,6 +1,6 @@
 # AR-Dagi
 
-<img src="./assets/gif/scanned.gif" height="250">
+<img src="./assets/gif/scanned.gif">
 
 This project is an AR application created with [mind-ar-js](https://github.com/hiukim/mind-ar-js) which shows animal animations when scanned and if combined with food try to click the food to feed the scanned animal.
 
